@@ -4,6 +4,9 @@ const userRoute = require('./user.route');
 const packageRoute = require('./package.route');
 const docsRoute = require('./docs.route');
 const inquiryRoute = require('./inquiry.route');
+const activityRoute = require('./activity.route');
+const bannerRoute = require('./banner.route');
+const menubarRoute = require('./menubar.route');
 const config = require('../../config/config');
 
 const router = express.Router();
@@ -24,6 +27,18 @@ const defaultRoutes = [
   {
     path: '/inquiry',
     route: inquiryRoute,
+  },
+  {
+    path: '/activity',
+    route: activityRoute,
+  },
+  {
+    path: '/banner',
+    route: bannerRoute,
+  },
+  {
+    path: '/menubar',
+    route: menubarRoute,
   },
 ];
 

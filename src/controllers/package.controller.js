@@ -33,8 +33,11 @@ const updatePackage = catchAsync(async (req, res) => {
 });
 
 const deletePackage = catchAsync(async (req, res) => {
-  await packageService.deletePackageById(req.params.packageId);
-  res.status(httpStatus.NO_CONTENT).send();
+  const delPack = await packageService.deletePackageById(req.params.packageId);
+  if (!delPack) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Package not found');
+  }
+  res.send(delPack);
 });
 
 module.exports = {
@@ -42,5 +45,5 @@ module.exports = {
   getPackages,
   getPackage,
   updatePackage,
-  deletePackage
+  deletePackage,
 };
