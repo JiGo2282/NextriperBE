@@ -3,6 +3,11 @@ const { toJSON, paginate } = require('./plugins');
 
 const bannerSchema = mongoose.Schema(
   {
+    bannerType: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     bannerImg: {
       type: String,
       required: true,
