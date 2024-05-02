@@ -1,15 +1,15 @@
 const Joi = require('joi');
 const { objectId } = require('./custom.validation');
 
-const createPackage = {
+const createEntertainment = {
   body: Joi.object().keys({
     packName: Joi.string().required(),
     packCountry: Joi.string().required(),
     packState: Joi.string().required(),
     packCity: Joi.string().required(),
-    packDays: Joi.string().required(),
-    packActualPrice: Joi.string().required(),
-    packDiscountPrice: Joi.string().required(),
+    // packDays: Joi.string().required(),
+    // packActualPrice: Joi.string().required(),
+    // packDiscountPrice: Joi.string().required(),
     packShortDescription: Joi.string().required(),
     packLongDescription: Joi.string().required(),
     packMainImg: Joi.string().required(),
@@ -20,7 +20,7 @@ const createPackage = {
   }),
 };
 
-const getPackages = {
+const getEntertainments = {
   query: Joi.object().keys({
     packName: Joi.string(),
     sortBy: Joi.string(),
@@ -29,16 +29,16 @@ const getPackages = {
   }),
 };
 
-const getPackage = {
+const getEntertainment = {
   params: Joi.object().keys({
-    // packageId: Joi.string().custom(objectId),
-    packageId: Joi.string(),
+    // entertainmentId: Joi.string().custom(objectId),
+    entertainmentId: Joi.string(),
   }),
 };
 
-const updatePackage = {
+const updateEntertainment = {
   params: Joi.object().keys({
-    packageId: Joi.required().custom(objectId),
+    entertainmentId: Joi.required().custom(objectId),
   }),
   body: Joi.object()
     .keys({
@@ -46,9 +46,6 @@ const updatePackage = {
       packCountry: Joi.string().required(),
       packState: Joi.string().required(),
       packCity: Joi.string().required(),
-      packDays: Joi.string().required(),
-      packActualPrice: Joi.string().required(),
-      packDiscountPrice: Joi.string().required(),
       packShortDescription: Joi.string().required(),
       packLongDescription: Joi.string().required(),
       packMainImg: Joi.string().required(),
@@ -60,16 +57,16 @@ const updatePackage = {
     .min(1),
 };
 
-const deletePackage = {
+const deleteEntertainment = {
   params: Joi.object().keys({
-    packageId: Joi.string().custom(objectId),
+    entertainmentId: Joi.string().custom(objectId),
   }),
 };
 
 module.exports = {
-  createPackage,
-  getPackages,
-  getPackage,
-  updatePackage,
-  deletePackage,
+  createEntertainment,
+  getEntertainments,
+  getEntertainment,
+  updateEntertainment,
+  deleteEntertainment,
 };

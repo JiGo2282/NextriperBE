@@ -19,6 +19,15 @@ const getPackages = catchAsync(async (req, res) => {
   res.send(result);
 });
 
+const getPackageSample = catchAsync(async (req, res) => {
+  const result = {
+    Hello: 'World',
+  };
+  res.set('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Origin', '*');
+  res.send(result);
+});
+
 const getPackage = catchAsync(async (req, res) => {
   const getPack = await packageService.getPackageById(req.params.packageId);
   if (!getPack) {
@@ -46,4 +55,5 @@ module.exports = {
   getPackage,
   updatePackage,
   deletePackage,
+  getPackageSample,
 };

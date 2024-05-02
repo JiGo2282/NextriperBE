@@ -5,3 +5,4 @@ module.exports.Inquiry = require('./inquiry.model');
 module.exports.Activity = require('./activity.model');
 module.exports.Banner = require('./banner.model');
 module.exports.Menubar = require('./menubar.model');
+module.exports.Entertainment = require('./entertainment.model');

@@ -42,7 +42,20 @@ const updateActivity = {
   }),
   body: Joi.object()
     .keys({
-      activityName: Joi.string(),
+      actName: Joi.string().required(),
+      actCountry: Joi.string().required(),
+      actState: Joi.string().required(),
+      actCity: Joi.string().required(),
+      actDays: Joi.string().required(),
+      actActualPrice: Joi.string().required(),
+      actDiscountPrice: Joi.string().required(),
+      actShortDescription: Joi.string().required(),
+      actLongDescription: Joi.string().required(),
+      actMainImg: Joi.string().required(),
+      actSubImg1: Joi.string().required(),
+      actSubImg2: Joi.string().required(),
+      actSubImg3: Joi.string().required(),
+      actType: Joi.string().required(),
     })
     .min(1),
 };

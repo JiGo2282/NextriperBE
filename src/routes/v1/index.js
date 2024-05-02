@@ -7,6 +7,7 @@ const inquiryRoute = require('./inquiry.route');
 const activityRoute = require('./activity.route');
 const bannerRoute = require('./banner.route');
 const menubarRoute = require('./menubar.route');
+const entertainmentRoute = require('./entertainment.route');
 const config = require('../../config/config');
 
 const router = express.Router();
@@ -39,6 +40,10 @@ const defaultRoutes = [
   {
     path: '/menubar',
     route: menubarRoute,
+  },
+  {
+    path: '/entertainment',
+    route: entertainmentRoute,
   },
 ];
 

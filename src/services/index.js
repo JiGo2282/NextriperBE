@@ -7,3 +7,4 @@ module.exports.inquiryService = require('./inquiry.service');
 module.exports.activityService = require('./activity.service');
 module.exports.bannerService = require('./banner.service');
 module.exports.menubarService = require('./menubar.service');
+module.exports.entertainmentService = require('./entertainment.service');

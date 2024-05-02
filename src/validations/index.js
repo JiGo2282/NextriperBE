@@ -5,3 +5,4 @@ module.exports.activityValidation = require('./activity.validation');
 module.exports.inquiryValidation = require('./inquiry.validation');
 module.exports.bannerValidation = require('./banner.validation');
 module.exports.menubarValidation = require('./menubar.validation');
+module.exports.entertainmentValidation = require('./entertainment.validation');
