@@ -5,3 +5,6 @@ module.exports.activityController = require('./activity.controller');
 module.exports.bannerController = require('./banner.controller');
 module.exports.menubarController = require('./menubar.controller');
 module.exports.entertainmentController = require('./entertainment.controller');
+module.exports.testimonialController = require('./testimonial.controller');
+module.exports.titleController = require('./title.controller');
+module.exports.blogController = require('./blog.controller');

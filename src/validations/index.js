@@ -6,3 +6,6 @@ module.exports.inquiryValidation = require('./inquiry.validation');
 module.exports.bannerValidation = require('./banner.validation');
 module.exports.menubarValidation = require('./menubar.validation');
 module.exports.entertainmentValidation = require('./entertainment.validation');
+module.exports.testimonialValidation = require('./testimonial.validation');
+module.exports.titleValidation = require('./title.validation');
+module.exports.blogValidation = require('./blog.validation');

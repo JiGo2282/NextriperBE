@@ -2,7 +2,6 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-const auth = require('../../middlewares/auth');
 const validate = require('../../middlewares/validate');
 const packageValidation = require('../../validations/package.validation');
 const packageController = require('../../controllers/package.controller');
@@ -33,7 +32,8 @@ router.route('/file').post(upload.single('img'), (req, res, next) => {
   }
   // eslint-disable-next-line no-useless-concat
   const oPath = `/root/Nextriper/src/uploads/` + `${req.file.filename}`;
-  const Basename = `${path.parse(req.file.originalname).name}_`;
+  let Basename = `${path.parse(req.file.originalname.replace(/[\])}[{(]/g, '')).name}_`;
+  Basename = Basename.replace(/\s/g, '_');
   // eslint-disable-next-line no-useless-concat
   const nPath = `${
     // eslint-disable-next-line no-useless-concat

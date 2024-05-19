@@ -8,6 +8,9 @@ const activityRoute = require('./activity.route');
 const bannerRoute = require('./banner.route');
 const menubarRoute = require('./menubar.route');
 const entertainmentRoute = require('./entertainment.route');
+const testimonialRoute = require('./testimonial.route');
+const titleRoute = require('./title.route');
+const blogRoute = require('./blog.route');
 const config = require('../../config/config');
 
 const router = express.Router();
@@ -44,6 +47,18 @@ const defaultRoutes = [
   {
     path: '/entertainment',
     route: entertainmentRoute,
+  },
+  {
+    path: '/testimonial',
+    route: testimonialRoute,
+  },
+  {
+    path: '/title',
+    route: titleRoute,
+  },
+  {
+    path: '/blog',
+    route: blogRoute,
   },
 ];
 

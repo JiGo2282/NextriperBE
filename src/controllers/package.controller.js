@@ -37,6 +37,7 @@ const getPackage = catchAsync(async (req, res) => {
 });
 
 const updatePackage = catchAsync(async (req, res) => {
+  req.body.packLongDescription = req.body.packLongDescription.replaceAll('&lt;', '<');
   const updatePack = await packageService.updatePackageById(req.params.packageId, req.body);
   res.send(updatePack);
 });

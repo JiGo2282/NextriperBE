@@ -6,3 +6,6 @@ module.exports.Activity = require('./activity.model');
 module.exports.Banner = require('./banner.model');
 module.exports.Menubar = require('./menubar.model');
 module.exports.Entertainment = require('./entertainment.model');
+module.exports.Testimonial = require('./testimonial.model');
+module.exports.Title = require('./title.model');
+module.exports.Blog = require('./blog.model');

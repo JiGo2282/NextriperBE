@@ -37,6 +37,7 @@ const getEntertainment = catchAsync(async (req, res) => {
 });
 
 const updateEntertainment = catchAsync(async (req, res) => {
+  req.body.packLongDescription = req.body.packLongDescription.replaceAll('&lt;', '<');
   const updatePack = await entertainmentService.updateEntertainmentById(req.params.entertainmentId, req.body);
   res.send(updatePack);
 });

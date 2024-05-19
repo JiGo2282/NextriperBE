@@ -28,6 +28,7 @@ const getActivity = catchAsync(async (req, res) => {
 });
 
 const updateActivity = catchAsync(async (req, res) => {
+  req.body.actLongDescription = req.body.actLongDescription.replaceAll('&lt;', '<');
   const updateAct = await activityService.updateActivityById(req.params.activityId, req.body);
   res.send(updateAct);
 });

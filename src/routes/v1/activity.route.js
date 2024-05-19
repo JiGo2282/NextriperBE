@@ -32,7 +32,8 @@ router.route('/file').post(upload.single('img'), (req, res, next) => {
   }
   // eslint-disable-next-line no-useless-concat
   const oPath = `/root/Nextriper/src/uploads/` + `${req.file.filename}`;
-  const Basename = `${path.parse(req.file.originalname).name}_`;
+  let Basename = `${path.parse(req.file.originalname.replace(/[\])}[{(]/g, '')).name}_`;
+  Basename = Basename.replace(/\s/g, '_');
   // eslint-disable-next-line no-useless-concat
   const nPath = `${
     // eslint-disable-next-line no-useless-concat
@@ -50,7 +51,7 @@ router.route('/file').post(upload.single('img'), (req, res, next) => {
 router
   .route('/:activityId')
   .get(validate(activityValidation.getActivity), activityController.getActivity)
-  .patch(auth(), validate(activityValidation.updateActivity), activityController.updateActivity)
+  .patch(validate(activityValidation.updateActivity), activityController.updateActivity)
   .delete(validate(activityValidation.deleteActivity), activityController.deleteActivity);
 
 module.exports = router;

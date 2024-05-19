@@ -1,12 +1,6 @@
 const httpStatus = require('http-status');
-const CryptoJS = require('crypto-js');
 const { User } = require('../models');
 const ApiError = require('../utils/ApiError');
-
-const getDecryptedObject = async (encryptedStr, p) => {
-  const decrypted = CryptoJS.AES.decrypt(encryptedStr, p);
-  return decrypted.toString(CryptoJS.enc.Utf8);
-};
 
 /**
  * Create a user
@@ -14,8 +8,6 @@ const getDecryptedObject = async (encryptedStr, p) => {
  * @returns {Promise<User>}
  */
 const createUser = async (userBody) => {
-  // eslint-disable-next-line no-param-reassign
-  userBody.password = getDecryptedObject(userBody.password, 'next_riper');
   if (await User.isEmailTaken(userBody.email)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   }

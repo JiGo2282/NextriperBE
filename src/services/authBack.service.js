@@ -1,15 +1,9 @@
 const httpStatus = require('http-status');
-const CryptoJS = require('crypto-js');
 const tokenService = require('./token.service');
 const userService = require('./user.service');
 const Token = require('../models/token.model');
 const ApiError = require('../utils/ApiError');
 const { tokenTypes } = require('../config/tokens');
-
-const getDecryptedObject = async (encryptedStr, p) => {
-  const decrypted = CryptoJS.AES.decrypt(encryptedStr, p);
-  return decrypted.toString(CryptoJS.enc.Utf8);
-};
 
 /**
  * Login with username and password
@@ -19,8 +13,7 @@ const getDecryptedObject = async (encryptedStr, p) => {
  */
 const loginUserWithEmailAndPassword = async (email, password) => {
   const user = await userService.getUserByEmail(email);
-  const pwd = getDecryptedObject(password, 'next_riper');
-  if (!user || !(await user.isPasswordMatch(await pwd))) {
+  if (!user || !(await user.isPasswordMatch(password))) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect email or password');
   }
   return user;
