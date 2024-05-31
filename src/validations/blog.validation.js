@@ -4,12 +4,12 @@ const { objectId } = require('./custom.validation');
 const createBlog = {
   body: Joi.object().keys({
     blogName: Joi.string().required(),
-    blogDescription: Joi.string().required(),
-    blogImage: Joi.string(),
     blogBy: Joi.string().required(),
-    blogCreateDate: Joi.string(),
     blogCategories: Joi.string(),
     blogIsPopular: Joi.string(),
+    blogDescription: Joi.string().required(),
+    blogCreateDate: Joi.date(),
+    blogImage: Joi.string(),
   }),
 };
 
@@ -36,12 +36,12 @@ const updateBlog = {
   body: Joi.object()
     .keys({
       blogName: Joi.string().required(),
-      blogDescription: Joi.string().required(),
-      blogImage: Joi.string(),
       blogBy: Joi.string().required(),
-      blogCreateDate: Joi.string(),
       blogCategories: Joi.string(),
       blogIsPopular: Joi.string(),
+      blogDescription: Joi.string().required(),
+      blogCreateDate: Joi.date(),
+      blogImage: Joi.string(),
     })
     .min(1),
 };

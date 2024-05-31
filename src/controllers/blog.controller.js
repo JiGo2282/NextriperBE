@@ -5,7 +5,7 @@ const catchAsync = require('../utils/catchAsync');
 const { blogService } = require('../services');
 
 const createBlog = catchAsync(async (req, res) => {
-  req.body.actLongDescription = req.body.actLongDescription.replaceAll('&lt;', '<');
+  req.body.blogDescription = req.body.blogDescription.replaceAll('&lt;', '<');
   const createAct = await blogService.createBlog(req.body);
   res.status(httpStatus.CREATED).send(createAct);
 });
@@ -28,7 +28,7 @@ const getBlog = catchAsync(async (req, res) => {
 });
 
 const updateBlog = catchAsync(async (req, res) => {
-  req.body.actLongDescription = req.body.actLongDescription.replaceAll('&lt;', '<');
+  req.body.blogDescription = req.body.blogDescription.replaceAll('&lt;', '<');
   const updateAct = await blogService.updateBlogById(req.params.blogId, req.body);
   res.send(updateAct);
 });
